@@ -1,13 +1,13 @@
 const http = require('axios').default;
 
-class AgentService {
+class ReportService {
   constructor() {}
 
   async getAll() {
     try {
       const response = await http({
         method: 'get',
-        url: 'http://localhost:3000/api/the-agents',
+        url: 'http://localhost:3002/api/helpdesk-reports/all',
         responseType: 'json'
       });
       return response
@@ -17,4 +17,4 @@ class AgentService {
   }
 }
 
-module.exports = new AgentService();
+module.exports = new ReportService();
