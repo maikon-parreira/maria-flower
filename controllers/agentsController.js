@@ -1,9 +1,10 @@
 const express = require("express")
 const api = express.Router()
+const agentService = require('../services/agentService');
 
 api.get('/', (req, res) => {
-    var dados = ['valor 1', 'valor 2', 'valor 3', 'valor 4'];
-    res.render('agents/index', { dadosDaView: dados, url : "agents" });
+    const agents = agentService.getAll()
+    res.render('agents/index', { agents: agents, url : "agents" });
 })
 
 module.exports = api
