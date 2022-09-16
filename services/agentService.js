@@ -1,4 +1,6 @@
-const http = require('axios').default;
+const http = require('axios').default
+const dotenv = require("dotenv")
+dotenv.config()
 
 class AgentService {
   constructor() {}
@@ -7,14 +9,14 @@ class AgentService {
     try {
       const response = await http({
         method: 'get',
-        url: 'http://localhost:3000/api/the-agents',
+        url: `${process.env.THE_AGENTS_URL}/api/the-agents`,
         responseType: 'json'
-      });
+      })
       return response
     } catch (error) {
-      console.error(error);
+      console.error(error)
     }
   }
 }
 
-module.exports = new AgentService();
+module.exports = new AgentService()

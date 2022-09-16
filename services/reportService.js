@@ -1,4 +1,6 @@
 const http = require('axios').default;
+const dotenv = require("dotenv")
+dotenv.config()
 
 class ReportService {
   constructor() {}
@@ -7,7 +9,7 @@ class ReportService {
     try {
       const response = await http({
         method: 'get',
-        url: 'http://localhost:3002/api/helpdesk-reports/all',
+        url: `${process.env.HELPDESK_REPORTS_URL}/api/helpdesk-reports/interactions`,
         responseType: 'json'
       });
       return response

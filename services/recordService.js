@@ -1,4 +1,6 @@
 const http = require('axios').default;
+const dotenv = require("dotenv")
+dotenv.config()
 
 class RecordService {
   constructor() {}
@@ -7,7 +9,7 @@ class RecordService {
     try {
       const response = await http({
         method: 'get',
-        url: 'http://localhost:3001/api/helpdesk/recordVoice/all',
+        url: `${process.env.HELPDESK_REPORTS_URL}/api/helpdesk-reports/voicemails`,
         responseType: 'json'
       });
       return response
