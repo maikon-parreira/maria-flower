@@ -13,9 +13,9 @@ api.get('/', async (req, res) => {
     const records = await recordService.getAll()
 
     dashboardCounts = {}
-    dashboardCounts.reports = reports.data ? reports.data.length : 0
-    dashboardCounts.records = records.data ? records.data.length : 0 
-    dashboardCounts.agents = agents.data ? agents.data.length : 0
+    dashboardCounts.reports = reports ? reports.data.length : 0
+    dashboardCounts.records = records ? records.data.length : 0 
+    dashboardCounts.agents  = agents  ? agents.data.length  : 0
   
     res.render('dashboard/index', { counts: dashboardCounts, url : "dashboard" });
 })
